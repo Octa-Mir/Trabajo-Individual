@@ -339,3 +339,100 @@ git checkout <ID-del-commit> -- <archivo>
 ```
 
 ---
+
+## CLASE 8
+
+### Hooks
+
+Permiten ejecutar scripts automáticamente al ocurrir eventos en Git.
+
+#### Crear un hook
+
+Crear un archivo en `.git/hooks` con el nombre del hook deseado. Puedes usar bash, Python, Node, etc.
+
+#### Hooks del lado del cliente
+
+* **pre-commit**: evitar commits con muchos archivos.
+* **prepare-commit-msg**: modificar el mensaje del commit.
+* **commit-msg**: validar el mensaje del commit.
+* **post-commit**: enviar notificaciones (e.g., Slack).
+* **pre-push**: ejecutar tests.
+* **post-checkout** y **post-merge**: limpiar ramas o archivos.
+
+#### Hooks del lado del servidor
+
+* **pre-receive**: validar commits entrantes.
+* **update**: control granular de actualizaciones.
+* **post-receive**: enviar alertas tras recibir cambios.
+
+---
+
+### Alias
+
+Permiten definir comandos personalizados.
+
+Ejemplos:
+
+```
+git co --> git commit
+git st --> git status
+```
+
+Crear un alias:
+
+```
+git config --global alias.<nombre> "<comando>"
+```
+
+---
+
+### Trucos de Git
+
+##### Guardar cambios temporalmente:
+
+```
+git stash
+```
+
+Guardar también archivos no rastreados:
+
+```
+git stash -u
+```
+
+Aplicar y eliminar el stash:
+
+```
+git stash pop
+```
+
+##### Aplicar cambios de un commit específico:
+
+```
+git cherry-pick <SHA>
+```
+
+##### Buscar el commit que causó un error:
+
+```
+git bisect start
+git bisect bad
+git bisect good
+git bisect reset
+```
+
+##### Cambiar el mensaje del último commit:
+
+```
+git commit --amend -m "nuevo mensaje"
+```
+
+##### Recuperar archivo de otro commit:
+
+```
+git checkout <SHA> <archivo>
+```
+
+---
+
+¿Deseas que este archivo limpio te lo prepare como descarga `.md` o lo sigues trabajando tú?
